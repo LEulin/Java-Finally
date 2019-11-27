@@ -144,10 +144,8 @@ public class MforBodyPain extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MforBodyPain().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new MforBodyPain().setVisible(true);
         });
     }
 

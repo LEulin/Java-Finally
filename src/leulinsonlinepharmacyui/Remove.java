@@ -3,8 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package leulinsonlinepharmacyui;
+
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -39,6 +46,7 @@ public class Remove extends javax.swing.JFrame {
         backBTN = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         medID = new javax.swing.JTextField();
+        removebtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -115,38 +123,63 @@ public class Remove extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel1.setText("Select medicine id you want to remove:");
+        jLabel1.setText("Select medicine brandname you want to remove:");
 
         medID.setText(" ");
+        medID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                medIDActionPerformed(evt);
+            }
+        });
+
+        removebtn.setText("Remove");
+        removebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removebtnMouseClicked(evt);
+            }
+        });
+        removebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removebtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(135, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(107, 107, 107))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(removebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(208, 208, 208))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(backBTN))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(169, 169, 169)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(headachebtn)
-                            .addComponent(bodypainbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(allergiesbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(coughbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(80, 80, 80)
+                        .addComponent(jLabel1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel7)
-                .addGap(107, 107, 107))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(medID, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
-                .addGap(91, 91, 91))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(allergiesbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bodypainbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(headachebtn)
+                            .addComponent(coughbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(166, 166, 166))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(medID, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(171, 171, 171))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,7 +189,7 @@ public class Remove extends javax.swing.JFrame {
                 .addComponent(backBTN)
                 .addGap(21, 21, 21)
                 .addComponent(jLabel7)
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
                 .addComponent(coughbtn)
                 .addGap(18, 18, 18)
                 .addComponent(headachebtn)
@@ -164,11 +197,13 @@ public class Remove extends javax.swing.JFrame {
                 .addComponent(bodypainbtn)
                 .addGap(18, 18, 18)
                 .addComponent(allergiesbtn)
-                .addGap(45, 45, 45)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(medID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(medID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addComponent(removebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -210,6 +245,92 @@ public class Remove extends javax.swing.JFrame {
         new Dashboard().setVisible(true);
     }//GEN-LAST:event_backBTNActionPerformed
 
+    private void removebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removebtnActionPerformed
+
+    }//GEN-LAST:event_removebtnActionPerformed
+
+    private void removebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removebtnMouseClicked
+        String b = medID.getText();
+        boolean exist = false;
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/eulin", "root", "");
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM `medicine` WHERE brandname='" +b+ "'");
+
+            while (rs.next()) {
+                System.out.println("Reading!");
+                if (rs.getString("brandname").equals(b)) {
+                    try {
+                        exist = true;
+                        String sql = "DELETE FROM `medicine` WHERE brandname='" + b + "'";
+                        stmt.executeUpdate(sql);
+                        JOptionPane.showMessageDialog(null, "Successfully removed!");
+                        this.dispose();
+                        new PharmaDashboard().setVisible(true);
+                        break;
+                    } catch (HeadlessException | SQLException e) {
+                        JOptionPane.showMessageDialog(null, "Error removing!!");
+                    }
+                }
+            }
+            if (exist == false) {
+                JOptionPane.showMessageDialog(null, "Brand name do not exist!");
+            }
+            con.close();
+        } catch (HeadlessException | ClassNotFoundException | SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error connecting!!");
+        }
+
+//        try {
+//            System.out.println("Here error");
+//            int idOfMedic = Integer.parseInt(medid);
+//
+//            try {
+//                Class.forName("com.mysql.jdbc.Driver");
+//                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/eulin", "root", "");
+//                Statement stmt = con.createStatement();
+//                ResultSet rs = stmt.executeQuery("SELECT * FROM `medicine` WHERE id=" + medid); // only choose the medicine inputted from the view
+//
+//                if (rs.next()) {
+//                    if (rs.getInt("id") == idOfMedic) {
+//                        try {
+//                            exist = true; // signifies that medicine existed
+//
+//                            String sql = "DELETE FROM `medicine` WHERE id =" + idOfMedic; // query here
+//
+//                            stmt.executeUpdate(sql); // delete the medicine you've inputted earlier
+//
+//                            JOptionPane.showMessageDialog(null, "Successfully removed!"); // tells us that it is successful
+//
+//                            this.dispose(); // page will now close
+//
+//                            new PharmaDashboard().setVisible(true);  // page will go back to the pharmacist menu view
+//                        } catch (HeadlessException | SQLException e) {
+//                            JOptionPane.showMessageDialog(null, "Error removing!!"); // This is something error while removing
+//                        }
+//                    }
+//                }
+//                System.out.println("Here error again");
+//
+//                if (exist == false) {
+//                    JOptionPane.showMessageDialog(null, "Medicine ID do not exist!");  // if brand name you entered do not exist from the database              
+//                }
+//
+//            } catch (HeadlessException | ClassNotFoundException | SQLException e) {
+//                JOptionPane.showMessageDialog(null, "Error connecting!!"); // can't connect to database maybe query has something wrong
+//            }
+//
+//        } catch (NumberFormatException e) {
+//            JOptionPane.showMessageDialog(null, "Medicine ID should be a number!");
+//        }
+    }//GEN-LAST:event_removebtnMouseClicked
+
+    private void medIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_medIDActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -239,6 +360,7 @@ public class Remove extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Remove().setVisible(true);
             }
@@ -257,5 +379,6 @@ public class Remove extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField medID;
+    private javax.swing.JButton removebtn;
     // End of variables declaration//GEN-END:variables
 }
