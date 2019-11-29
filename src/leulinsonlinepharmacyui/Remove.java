@@ -24,6 +24,7 @@ public class Remove extends javax.swing.JFrame {
      */
     public Remove() {
         initComponents();
+        this.setTitle("Remove Medicine");
     }
 
     /**
@@ -45,8 +46,9 @@ public class Remove extends javax.swing.JFrame {
         allergiesbtn = new javax.swing.JButton();
         backBTN = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        medID = new javax.swing.JTextField();
+        medbrand = new javax.swing.JTextField();
         removebtn = new javax.swing.JButton();
+        comboBox = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,7 +83,12 @@ public class Remove extends javax.swing.JFrame {
         jLabel7.setText("Select Medicine Type to Remove");
 
         coughbtn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        coughbtn.setText("Medicine for Cough");
+        coughbtn.setText("View Medicine for Cough");
+        coughbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                coughbtnMouseClicked(evt);
+            }
+        });
         coughbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 coughbtnActionPerformed(evt);
@@ -89,7 +96,7 @@ public class Remove extends javax.swing.JFrame {
         });
 
         headachebtn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        headachebtn.setText("Medicine for Headache");
+        headachebtn.setText("View Medicine for Headache");
         headachebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 headachebtnActionPerformed(evt);
@@ -97,7 +104,7 @@ public class Remove extends javax.swing.JFrame {
         });
 
         bodypainbtn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        bodypainbtn.setText("Medicine for Body Pain");
+        bodypainbtn.setText("View Medicine for Body Pain");
         bodypainbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bodypainbtnActionPerformed(evt);
@@ -105,7 +112,7 @@ public class Remove extends javax.swing.JFrame {
         });
 
         allergiesbtn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        allergiesbtn.setText("Medicine for Allergies");
+        allergiesbtn.setText("View Medicine for Allergies");
         allergiesbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 allergiesbtnActionPerformed(evt);
@@ -125,10 +132,10 @@ public class Remove extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel1.setText("Select medicine brandname you want to remove:");
 
-        medID.setText(" ");
-        medID.addActionListener(new java.awt.event.ActionListener() {
+        medbrand.setText(" ");
+        medbrand.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                medIDActionPerformed(evt);
+                medbrandActionPerformed(evt);
             }
         });
 
@@ -144,42 +151,50 @@ public class Remove extends javax.swing.JFrame {
             }
         });
 
+        comboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cough", "Body Pain", "Headache", "Allergies" }));
+        comboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(135, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(107, 107, 107))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(removebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(208, 208, 208))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(backBTN))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(medbrand, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(177, 177, 177))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(80, 80, 80))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(allergiesbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bodypainbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(headachebtn)
-                            .addComponent(coughbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(166, 166, 166))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(medID, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(171, 171, 171))))
+                        .addGap(0, 125, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(107, 107, 107))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(removebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(208, 208, 208))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(backBTN)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(157, 157, 157)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(coughbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bodypainbtn)
+                    .addComponent(headachebtn)
+                    .addComponent(allergiesbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,18 +205,20 @@ public class Remove extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
-                .addComponent(coughbtn)
-                .addGap(18, 18, 18)
-                .addComponent(headachebtn)
-                .addGap(18, 18, 18)
-                .addComponent(bodypainbtn)
-                .addGap(18, 18, 18)
                 .addComponent(allergiesbtn)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(headachebtn)
+                .addGap(13, 13, 13)
+                .addComponent(bodypainbtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(coughbtn)
+                .addGap(27, 27, 27)
+                .addComponent(comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(medID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addComponent(medbrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
                 .addComponent(removebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
@@ -220,26 +237,6 @@ public class Remove extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void coughbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coughbtnActionPerformed
-        this.setVisible(true);
-        new MforCough().setVisible(true);
-    }//GEN-LAST:event_coughbtnActionPerformed
-
-    private void headachebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_headachebtnActionPerformed
-        this.setVisible(true);
-        new MforHeadache().setVisible(true);
-    }//GEN-LAST:event_headachebtnActionPerformed
-
-    private void bodypainbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bodypainbtnActionPerformed
-        this.setVisible(true);
-        new MforBodyPain().setVisible(true);
-    }//GEN-LAST:event_bodypainbtnActionPerformed
-
-    private void allergiesbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allergiesbtnActionPerformed
-        this.setVisible(true);
-        new MforAllergies().setVisible(true);
-    }//GEN-LAST:event_allergiesbtnActionPerformed
-
     private void backBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBTNActionPerformed
         this.setVisible(false);
         new Dashboard().setVisible(true);
@@ -250,86 +247,132 @@ public class Remove extends javax.swing.JFrame {
     }//GEN-LAST:event_removebtnActionPerformed
 
     private void removebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removebtnMouseClicked
-        String b = medID.getText();
-        boolean exist = false;
+        String med = medbrand.getText();
 
+        String a = "Allergies";
+        String b = "Headache";
+        String c = "Body Pain";
+        String d = "Cough";
+        String dropDownValue = (String) comboBox.getSelectedItem();
+        String remove = dropDownValue;
+
+        String sql1 = "DELETE FROM `medicineforallergies` WHERE brandname='" + med + "'";
+        String sql2 = "DELETE FROM `medicineforheadache` WHERE brandname='" + med + "'";
+        String sql3 = "DELETE FROM `medicineforbodypain` WHERE brandname='" + med + "'";
+        String sql4 = "DELETE FROM `medicineforcough` WHERE brandname='" + med + "'";
+
+        JOptionPane.showMessageDialog(rootPane, dropDownValue);
         try {
+//            System.out.println("na read ni siya!");
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/eulin", "root", "");
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM `medicine` WHERE brandname='" +b+ "'");
+            try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost/eulin", "root", "")) {
+                Statement stmt = con.createStatement();
 
-            while (rs.next()) {
-                System.out.println("Reading!");
-                if (rs.getString("brandname").equals(b)) {
-                    try {
-                        exist = true;
-                        String sql = "DELETE FROM `medicine` WHERE brandname='" + b + "'";
-                        stmt.executeUpdate(sql);
-                        JOptionPane.showMessageDialog(null, "Successfully removed!");
-                        this.dispose();
-                        new PharmaDashboard().setVisible(true);
-                        break;
-                    } catch (HeadlessException | SQLException e) {
-                        JOptionPane.showMessageDialog(null, "Error removing!!");
-                    }
+                if (remove.equals(a) == true) {
+//                    System.out.println("na read ni siya!");
+                    stmt.executeUpdate(sql1);
+                    JOptionPane.showMessageDialog(rootPane, "Medicine removed successfully!");
+                    this.dispose();
+                    new PharmaDashboard().setVisible(true);
+                } else if (remove.equals(b) == true) {
+//                    System.out.println("na read ni siya!");
+                    stmt.executeUpdate(sql2);
+                    JOptionPane.showMessageDialog(rootPane, "Medicine removed successfully!");
+                    this.dispose();
+                    new PharmaDashboard().setVisible(true);
+                } else if (remove.equals(c) == true) {
+//                    System.out.println("na read ni siya!");
+                    stmt.executeUpdate(sql3);
+                    JOptionPane.showMessageDialog(rootPane, "Medicine removed successfully!");
+                    this.dispose();
+                    new PharmaDashboard().setVisible(true);
+                } else if (remove.equals(d) == true) {
+//                    System.out.println("na read ni siya!");
+                    stmt.executeUpdate(sql4);
+                    JOptionPane.showMessageDialog(rootPane, "Medicine removed successfully!");
+                    this.dispose();
+                    new PharmaDashboard().setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, remove);
                 }
             }
-            if (exist == false) {
-                JOptionPane.showMessageDialog(null, "Brand name do not exist!");
-            }
-            con.close();
         } catch (HeadlessException | ClassNotFoundException | SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error connecting!!");
+            JOptionPane.showMessageDialog(rootPane, "Error connecting to database!");
         }
-
 //        try {
-//            System.out.println("Here error");
-//            int idOfMedic = Integer.parseInt(medid);
+//            Class.forName("com.mysql.jdbc.Driver");
+//            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/eulin", "root", "");
+//            Statement stmt = con.createStatement();
+//            ResultSet rs = stmt.executeQuery("SELECT * FROM `medicine` WHERE brandname='" + b + "'");
 //
-//            try {
-//                Class.forName("com.mysql.jdbc.Driver");
-//                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/eulin", "root", "");
-//                Statement stmt = con.createStatement();
-//                ResultSet rs = stmt.executeQuery("SELECT * FROM `medicine` WHERE id=" + medid); // only choose the medicine inputted from the view
-//
-//                if (rs.next()) {
-//                    if (rs.getInt("id") == idOfMedic) {
-//                        try {
-//                            exist = true; // signifies that medicine existed
-//
-//                            String sql = "DELETE FROM `medicine` WHERE id =" + idOfMedic; // query here
-//
-//                            stmt.executeUpdate(sql); // delete the medicine you've inputted earlier
-//
-//                            JOptionPane.showMessageDialog(null, "Successfully removed!"); // tells us that it is successful
-//
-//                            this.dispose(); // page will now close
-//
-//                            new PharmaDashboard().setVisible(true);  // page will go back to the pharmacist menu view
-//                        } catch (HeadlessException | SQLException e) {
-//                            JOptionPane.showMessageDialog(null, "Error removing!!"); // This is something error while removing
-//                        }
+//            while (rs.next()) {
+//                System.out.println("Reading!");
+//                if (rs.getString("brandname").equals(b)) {
+//                    try {
+//                        exist = true;
+//                        String sql = "DELETE FROM `medicine` WHERE brandname='" + b + "'";
+//                        stmt.executeUpdate(sql);
+//                        JOptionPane.showMessageDialog(null, "Successfully removed!");
+//                        this.dispose();
+//                        new PharmaDashboard().setVisible(true);
+//                        break;
+//                    } catch (HeadlessException | SQLException e) {
+//                        JOptionPane.showMessageDialog(null, "Error removing!!");
 //                    }
 //                }
-//                System.out.println("Here error again");
-//
-//                if (exist == false) {
-//                    JOptionPane.showMessageDialog(null, "Medicine ID do not exist!");  // if brand name you entered do not exist from the database              
-//                }
-//
-//            } catch (HeadlessException | ClassNotFoundException | SQLException e) {
-//                JOptionPane.showMessageDialog(null, "Error connecting!!"); // can't connect to database maybe query has something wrong
 //            }
-//
-//        } catch (NumberFormatException e) {
-//            JOptionPane.showMessageDialog(null, "Medicine ID should be a number!");
+//            if (exist == false) {
+//                JOptionPane.showMessageDialog(null, "Brand name do not exist!");
+//            }
+//            con.close();
+//        } catch (HeadlessException | ClassNotFoundException | SQLException e) {
+//            JOptionPane.showMessageDialog(null, "Error connecting!!");
 //        }
+
     }//GEN-LAST:event_removebtnMouseClicked
 
-    private void medIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medIDActionPerformed
+    private void medbrandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medbrandActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_medIDActionPerformed
+    }//GEN-LAST:event_medbrandActionPerformed
+
+    private void allergiesbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allergiesbtnActionPerformed
+        this.setVisible(true);
+        new MforAllergies().setVisible(true);
+    }//GEN-LAST:event_allergiesbtnActionPerformed
+
+    private void bodypainbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bodypainbtnActionPerformed
+        this.setVisible(true);
+        new MforBodyPain().setVisible(true);
+    }//GEN-LAST:event_bodypainbtnActionPerformed
+
+    private void headachebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_headachebtnActionPerformed
+        this.setVisible(true);
+        new MforHeadache().setVisible(true);
+    }//GEN-LAST:event_headachebtnActionPerformed
+
+    private void coughbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coughbtnActionPerformed
+        this.setVisible(true);
+        new MforCough().setVisible(true);
+    }//GEN-LAST:event_coughbtnActionPerformed
+
+    private void coughbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_coughbtnMouseClicked
+
+    }//GEN-LAST:event_coughbtnMouseClicked
+
+    private void comboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxActionPerformed
+        //        String value = comboBox.getSelectedItem().toString();
+        //
+        //        try {
+        //            Class.forName("com.mysql.jdbc.Driver");
+        //                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/eulin", "root", "");
+        //                Statement stmt = con.createStatement();
+        //                ResultSet rs = stmt.executeQuery("SELECT * FROM `" + value + "`");
+        //
+        //
+        //
+        //        } catch () {
+        //        }
+    }//GEN-LAST:event_comboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -371,6 +414,7 @@ public class Remove extends javax.swing.JFrame {
     private javax.swing.JButton allergiesbtn;
     private javax.swing.JButton backBTN;
     private javax.swing.JButton bodypainbtn;
+    private javax.swing.JComboBox comboBox;
     private javax.swing.JButton coughbtn;
     private javax.swing.JButton headachebtn;
     private javax.swing.JLabel jLabel1;
@@ -378,7 +422,7 @@ public class Remove extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField medID;
+    private javax.swing.JTextField medbrand;
     private javax.swing.JButton removebtn;
     // End of variables declaration//GEN-END:variables
 }

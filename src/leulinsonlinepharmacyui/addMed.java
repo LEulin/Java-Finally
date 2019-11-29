@@ -14,6 +14,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import DBpart.Model;
 
 /**
  *
@@ -28,6 +29,10 @@ public class addMed extends javax.swing.JFrame {
         initComponents();
         this.setTitle("Add Medicine");
     }
+    
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -50,10 +55,9 @@ public class addMed extends javax.swing.JFrame {
         genname = new javax.swing.JTextField();
         price = new javax.swing.JTextField();
         quantity = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        type = new javax.swing.JTextField();
         submit = new javax.swing.JButton();
         backBTN = new javax.swing.JButton();
+        comboBox = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,9 +103,6 @@ public class addMed extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel6.setText("Enter Quantity:");
 
-        jLabel8.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel8.setText("Enter Type:");
-
         submit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         submit.setText("Submit");
         submit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -125,6 +126,13 @@ public class addMed extends javax.swing.JFrame {
             }
         });
 
+        comboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cough", "Body Pain", "Headache", "Allergies" }));
+        comboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -139,13 +147,9 @@ public class addMed extends javax.swing.JFrame {
                                 .addGap(101, 101, 101)
                                 .addComponent(submit, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel5))
+                                .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,14 +158,14 @@ public class addMed extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(brandname, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel4)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(genname, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(genname, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(backBTN))
@@ -186,11 +190,9 @@ public class addMed extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(genname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(quantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -218,38 +220,58 @@ public class addMed extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submitMouseClicked
+//        Model mod = new Model();
         String brand = brandname.getText();
         String gen = genname.getText();
-        String typ = type.getText();
+        String a = "Allergies";
+        String b = "Headache";
+        String c = "Body Pain";
+        String d = "Cough";
         String quant = quantity.getText();
         String prc = price.getText();
+        String dropDownValue = (String) comboBox.getSelectedItem();
+        String typ = dropDownValue;
+        
+        int qty = Integer.parseInt(quant);
+        double price = Double.parseDouble(prc);
+        
+        String sql1 = "INSERT INTO `medicineforallergies` (`brandname`, `genericname`, `type`, `quantity`, `price`) VALUES ('" + brand + "', '" + gen + "', '" + typ + "', " + qty + ", " + price + ")";
+        String sql2 = "INSERT INTO `medicineforheadache` (`brandname`, `genericname`, `type`, `quantity`, `price`) VALUES ('" + brand + "', '" + gen + "', '" + typ + "', " + qty + ", " + price + ")";
+        String sql3 = "INSERT INTO `medicineforbodypain` (`brandname`, `genericname`, `type`, `quantity`, `price`) VALUES ('" + brand + "', '" + gen + "', '" + typ + "', " + qty + ", " + price + ")";
+        String sql4 = "INSERT INTO `medicineforcough` (`brandname`, `genericname`, `type`, `quantity`, `price`) VALUES ('" + brand + "', '" + gen + "', '" + typ + "', " + qty + ", " + price + ")";
 
+//        JOptionPane.showMessageDialog(rootPane,dropDownValue);
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/eulin", "root", "");
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM `medicine` WHERE brandname='" + brand + "'");
 
-            if (rs.next()) {
-                JOptionPane.showMessageDialog(null, "Medicine already exist!");
+            if (typ.equals(a) == true) {
+                stmt.executeUpdate(sql1);
+                JOptionPane.showMessageDialog(rootPane, "Medicine added successfully!");
+                this.dispose();
+                new PharmaDashboard().setVisible(true);
+            } else if (typ.equals(b) == true) {
+                stmt.executeUpdate(sql2);
+                JOptionPane.showMessageDialog(rootPane, "Medicine added successfully!");
+                this.dispose();
+                new PharmaDashboard().setVisible(true);
+            } else if (typ.equals(c) == true) {
+                stmt.executeUpdate(sql3);
+                JOptionPane.showMessageDialog(rootPane, "Medicine added successfully!");
+                this.dispose();
+                new PharmaDashboard().setVisible(true);
+            } else if (typ.equals(d) == true) {
+                stmt.executeUpdate(sql4);
+                JOptionPane.showMessageDialog(rootPane, "Medicine added successfully!");
+                this.dispose();
+                new PharmaDashboard().setVisible(true);
             } else {
-                try {
-                    int quantity = Integer.parseInt(quant);
-                    double price = Double.parseDouble(prc);
-
-                    String sql = "INSERT INTO `medicine` (`brandname`, `genericname`, `type`, `quantity`, `price`) VALUES ('" + brand + "', '" + gen + "', '" + typ + "', " + quantity + ", " + price + ")";
-
-                    stmt.executeUpdate(sql);
-                    JOptionPane.showMessageDialog(null, "Medicine added!");
-                    this.dispose();
-                    new PharmaDashboard().setVisible(true);
-
-                } catch (SQLException e) {
-                    JOptionPane.showMessageDialog(null, "Error adding!");
-                }
+                JOptionPane.showMessageDialog(rootPane, typ);
             }
-        } catch (ClassNotFoundException | SQLException | HeadlessException | NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Error!");
+            con.close();
+        } catch (HeadlessException | ClassNotFoundException | SQLException e) {
+            JOptionPane.showMessageDialog(rootPane, "Error connecting to database!");
         }
     }//GEN-LAST:event_submitMouseClicked
 
@@ -261,6 +283,21 @@ public class addMed extends javax.swing.JFrame {
         this.setVisible(false);
         new Dashboard().setVisible(true);
     }//GEN-LAST:event_backBTNActionPerformed
+
+    private void comboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxActionPerformed
+//        String value = comboBox.getSelectedItem().toString();
+//
+//        try {
+//            Class.forName("com.mysql.jdbc.Driver");
+//                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/eulin", "root", "");
+//                Statement stmt = con.createStatement();
+//                ResultSet rs = stmt.executeQuery("SELECT * FROM `" + value + "`");
+//                
+//                
+//
+//        } catch () {
+//        }
+    }//GEN-LAST:event_comboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -301,6 +338,7 @@ public class addMed extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBTN;
     private javax.swing.JTextField brandname;
+    private javax.swing.JComboBox comboBox;
     private javax.swing.JTextField genname;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -308,12 +346,10 @@ public class addMed extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField price;
     private javax.swing.JTextField quantity;
     private javax.swing.JButton submit;
-    private javax.swing.JTextField type;
     // End of variables declaration//GEN-END:variables
 }

@@ -264,14 +264,14 @@ public class Login extends javax.swing.JFrame {
                 if (rs.next()) {
                     if (rs.getString("password").equals(pass)) {
                         this.dispose();
+                        JOptionPane.showMessageDialog(null, "Welcome to LEulin's Online Pharmacy!");
+                        JOptionPane.showMessageDialog(null, "Logged in as customer!");
                         Dashboard dash = new Dashboard(uname);
                         dash.setVisible(true);
-                        JOptionPane.showMessageDialog(null, "Logged in as customer!");
 
                     } else {
                         JOptionPane.showMessageDialog(null, "Password is incorrect!");
                     }
-
                 } else {
                     JOptionPane.showMessageDialog(null, "Username does not exist!");
                 }
@@ -280,8 +280,8 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Error Connecting!");
 
             }
-
         }
+
 
     }//GEN-LAST:event_loginButtonActionPerformed
 

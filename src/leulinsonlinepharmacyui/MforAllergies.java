@@ -3,16 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package leulinsonlinepharmacyui;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author eulinle_sd2022
  */
 public class MforAllergies extends javax.swing.JFrame {
+
+    String uname;
 
     /**
      * Creates new form MforAllergies
@@ -21,6 +29,44 @@ public class MforAllergies extends javax.swing.JFrame {
         initComponents();
         this.setTitle("Medicine for Allergies");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/eulin", "root", "");
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM `medicineforallergies`");
+            DefaultTableModel tm = (DefaultTableModel) MedicineForAllergies.getModel();
+            tm.setRowCount(0);
+            while (rs.next()) {
+                Object table[] = {rs.getInt("id"), rs.getString("brandname"), rs.getString("genericname"), rs.getString("type"), rs.getInt("quantity"), rs.getInt("price")};
+                tm.addRow(table);
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error connecting to database!");
+        }
+    }
+
+    public MforAllergies(String username) {
+        initComponents();
+        this.setTitle("Medicine for Body Pain");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        uname = username;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/eulin", "root", "");
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM `medicineforallergies`");
+            DefaultTableModel tm = (DefaultTableModel) MedicineForAllergies.getModel();
+            tm.setRowCount(0);
+
+            while (rs.next()) {
+                Object table[] = {rs.getInt("id"), rs.getString("brandname"), rs.getString("genericname"), rs.getString("type"), rs.getInt("quantity"), rs.getInt("price")};
+                tm.addRow(table);
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error connecting to database!");
+        }
+
     }
 
     /**
@@ -66,10 +112,10 @@ public class MforAllergies extends javax.swing.JFrame {
 
         MedicineForAllergies.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "Allerkid", "Ceterizine", "Allergies", "50", "8.00"},
-                {"2", "Allerta", "Loratadine", "Allergies", "50", "16.00"},
-                {"3", "Allerta", "Mometasone", "Allergies", "50", "24.00"},
-                {null, null, null, null, null, null},
+                {"", "", "", "", "", ""},
+                {"", "", "", "", "", ""},
+                {"", "", "", "", "", ""},
+                {null, null, null, null, null, ""},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -80,7 +126,15 @@ public class MforAllergies extends javax.swing.JFrame {
             new String [] {
                 "Medicine ID", "Brand Name", "Generic Name", "Medicine Type", "Quantity", "Price"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         MedicineForAllergies.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
                 MedicineForAllergiesComponentAdded(evt);
@@ -125,7 +179,7 @@ public class MforAllergies extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void MedicineForAllergiesComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_MedicineForAllergiesComponentAdded
-        
+
     }//GEN-LAST:event_MedicineForAllergiesComponentAdded
 
     private void MedicineForAllergiesComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_MedicineForAllergiesComponentRemoved

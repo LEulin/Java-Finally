@@ -112,10 +112,10 @@
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="6" rowCount="10">
-                    <Column editable="true" title="Medicine ID" type="java.lang.Object">
-                      <Data value="1"/>
-                      <Data value="2"/>
-                      <Data value="3"/>
+                    <Column editable="false" title="Medicine ID" type="java.lang.Object">
+                      <Data value=""/>
+                      <Data value=""/>
+                      <Data value=""/>
                       <Data value="null"/>
                       <Data value="null"/>
                       <Data value="null"/>
@@ -124,10 +124,10 @@
                       <Data value="null"/>
                       <Data value="null"/>
                     </Column>
-                    <Column editable="true" title="Brand Name" type="java.lang.Object">
-                      <Data value="Alaxan"/>
-                      <Data value="Rexidol"/>
-                      <Data value="Medicol"/>
+                    <Column editable="false" title="Brand Name" type="java.lang.Object">
+                      <Data value=""/>
+                      <Data value=""/>
+                      <Data value=""/>
                       <Data value="null"/>
                       <Data value="null"/>
                       <Data value="null"/>
@@ -136,10 +136,10 @@
                       <Data value="null"/>
                       <Data value="null"/>
                     </Column>
-                    <Column editable="true" title="Generic Name" type="java.lang.Object">
-                      <Data value="Ibuprofen"/>
-                      <Data value="Paracetamol"/>
-                      <Data value="Ibuprofen"/>
+                    <Column editable="false" title="Generic Name" type="java.lang.Object">
+                      <Data value=""/>
+                      <Data value=""/>
+                      <Data value=""/>
                       <Data value="null"/>
                       <Data value="null"/>
                       <Data value="null"/>
@@ -148,10 +148,10 @@
                       <Data value="null"/>
                       <Data value="null"/>
                     </Column>
-                    <Column editable="true" title="Medicine Type" type="java.lang.Object">
-                      <Data value="Body Pain"/>
-                      <Data value="Body Pain"/>
-                      <Data value="Body Pain"/>
+                    <Column editable="false" title="Medicine Type" type="java.lang.Object">
+                      <Data value=""/>
+                      <Data value=""/>
+                      <Data value=""/>
                       <Data value="null"/>
                       <Data value="null"/>
                       <Data value="null"/>
@@ -160,10 +160,10 @@
                       <Data value="null"/>
                       <Data value="null"/>
                     </Column>
-                    <Column editable="true" title="Quantity" type="java.lang.Object">
-                      <Data value="50"/>
-                      <Data value="50"/>
-                      <Data value="50"/>
+                    <Column editable="false" title="Quantity" type="java.lang.Object">
+                      <Data value=""/>
+                      <Data value=""/>
+                      <Data value=""/>
                       <Data value="null"/>
                       <Data value="null"/>
                       <Data value="null"/>
@@ -172,10 +172,10 @@
                       <Data value="null"/>
                       <Data value="null"/>
                     </Column>
-                    <Column editable="true" title="Price" type="java.lang.Object">
-                      <Data value="8.25"/>
-                      <Data value="15.5"/>
-                      <Data value="5.00"/>
+                    <Column editable="false" title="Price" type="java.lang.Object">
+                      <Data value=""/>
+                      <Data value=""/>
+                      <Data value=""/>
                       <Data value="null"/>
                       <Data value="null"/>
                       <Data value="null"/>

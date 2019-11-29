@@ -3,16 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package leulinsonlinepharmacyui;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author eulinle_sd2022
  */
 public class MforHeadache extends javax.swing.JFrame {
+
+    String uname;
 
     /**
      * Creates new form MforHeadache
@@ -21,6 +29,44 @@ public class MforHeadache extends javax.swing.JFrame {
         initComponents();
         this.setTitle("Medicine for Headache");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/eulin", "root", "");
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM `medicineforheadache`");
+            DefaultTableModel tm = (DefaultTableModel) MedicineForHeadache.getModel();
+            tm.setRowCount(0);
+            while (rs.next()) {
+                Object table[] = {rs.getInt("id"), rs.getString("brandname"), rs.getString("genericname"), rs.getString("type"), rs.getInt("quantity"), rs.getInt("price")};
+                tm.addRow(table);
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error connecting to database!");
+        }
+    }
+
+    public MforHeadache(String username) {
+        initComponents();
+        this.setTitle("Medicine for Body Pain");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        uname = username;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/eulin", "root", "");
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM `medicineforheadache`");
+            DefaultTableModel tm = (DefaultTableModel) MedicineForHeadache.getModel();
+            tm.setRowCount(0);
+
+            while (rs.next()) {
+                Object table[] = {rs.getInt("id"), rs.getString("brandname"), rs.getString("genericname"), rs.getString("type"), rs.getInt("quantity"), rs.getInt("price")};
+                tm.addRow(table);
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error connecting to database!");
+        }
+
     }
 
     /**
@@ -35,7 +81,7 @@ public class MforHeadache extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
         MedicineForHeadache = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,10 +112,10 @@ public class MforHeadache extends javax.swing.JFrame {
 
         MedicineForHeadache.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "Biogesic 325", "Carbocisteine", "Headache", "50", "6.00"},
-                {"2", "Biogesic", "Ambroxol", "Headache", "50", "8.00"},
-                {"3", "Fevertab", "Ambroxol", "Headache", "50", "5.00"},
-                {null, null, null, null, null, null},
+                {"", "", "", "", "", ""},
+                {"", "", "", "", "", ""},
+                {"", "", "", "", "", ""},
+                {null, null, null, null, null, ""},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -80,26 +126,46 @@ public class MforHeadache extends javax.swing.JFrame {
             new String [] {
                 "Medicine ID", "Brand Name", "Generic Name", "Medicine Type", "Quantity", "Price"
             }
-        ));
-        jScrollPane4.setViewportView(MedicineForHeadache);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        MedicineForHeadache.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                MedicineForHeadacheComponentAdded(evt);
+            }
+            public void componentRemoved(java.awt.event.ContainerEvent evt) {
+                MedicineForHeadacheComponentRemoved(evt);
+            }
+        });
+        jScrollPane1.setViewportView(MedicineForHeadache);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(43, 43, 43)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(44, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(270, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(57, 57, 57)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(57, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -115,6 +181,14 @@ public class MforHeadache extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void MedicineForHeadacheComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_MedicineForHeadacheComponentAdded
+
+    }//GEN-LAST:event_MedicineForHeadacheComponentAdded
+
+    private void MedicineForHeadacheComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_MedicineForHeadacheComponentRemoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MedicineForHeadacheComponentRemoved
 
     /**
      * @param args the command line arguments
@@ -154,6 +228,6 @@ public class MforHeadache extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

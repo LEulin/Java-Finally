@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package leulinsonlinepharmacyui;
 
 import javax.swing.JFrame;
@@ -42,7 +41,7 @@ public class ViewMedicines extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        backBTN = new javax.swing.JButton();
+        back = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         coughbtn = new javax.swing.JButton();
         headachebtn = new javax.swing.JButton();
@@ -114,13 +113,18 @@ public class ViewMedicines extends javax.swing.JFrame {
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
-        backBTN.setBackground(new java.awt.Color(153, 153, 153));
-        backBTN.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        backBTN.setForeground(new java.awt.Color(0, 153, 153));
-        backBTN.setText("< Back");
-        backBTN.addActionListener(new java.awt.event.ActionListener() {
+        back.setBackground(new java.awt.Color(153, 153, 153));
+        back.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        back.setForeground(new java.awt.Color(0, 153, 153));
+        back.setText("< Back");
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backMouseClicked(evt);
+            }
+        });
+        back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBTNActionPerformed(evt);
+                backActionPerformed(evt);
             }
         });
 
@@ -182,7 +186,7 @@ public class ViewMedicines extends javax.swing.JFrame {
                                     .addComponent(allergiesbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(164, 164, 164))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(backBTN)
+                        .addComponent(back)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -190,7 +194,7 @@ public class ViewMedicines extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(backBTN)
+                .addComponent(back)
                 .addGap(60, 60, 60)
                 .addComponent(jLabel7)
                 .addGap(39, 39, 39)
@@ -199,9 +203,9 @@ public class ViewMedicines extends javax.swing.JFrame {
                 .addComponent(headachebtn)
                 .addGap(18, 18, 18)
                 .addComponent(bodypainbtn)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(allergiesbtn)
-                .addContainerGap(248, Short.MAX_VALUE))
+                .addContainerGap(255, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -218,30 +222,34 @@ public class ViewMedicines extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void backBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBTNActionPerformed
-        this.setVisible(false);
-        new Dashboard().setVisible(true);
-    }//GEN-LAST:event_backBTNActionPerformed
+    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
+
+    }//GEN-LAST:event_backActionPerformed
 
     private void allergiesbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allergiesbtnActionPerformed
-         this.setVisible(true);
+        this.setVisible(true);
         new MforAllergies().setVisible(true);
     }//GEN-LAST:event_allergiesbtnActionPerformed
 
     private void coughbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coughbtnActionPerformed
-         this.setVisible(true);
+        this.setVisible(true);
         new MforCough().setVisible(true);
     }//GEN-LAST:event_coughbtnActionPerformed
 
     private void bodypainbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bodypainbtnActionPerformed
-         this.setVisible(true);
+        this.setVisible(true);
         new MforBodyPain().setVisible(true);
     }//GEN-LAST:event_bodypainbtnActionPerformed
 
     private void headachebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_headachebtnActionPerformed
-         this.setVisible(true);
+        this.setVisible(true);
         new MforHeadache().setVisible(true);
     }//GEN-LAST:event_headachebtnActionPerformed
+
+    private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
+        this.setVisible(false);
+        new Dashboard().setVisible(true);
+    }//GEN-LAST:event_backMouseClicked
 
     /**
      * @param args the command line arguments
@@ -281,7 +289,7 @@ public class ViewMedicines extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable MedicineForCough1;
     private javax.swing.JButton allergiesbtn;
-    private javax.swing.JButton backBTN;
+    private javax.swing.JButton back;
     private javax.swing.JButton bodypainbtn;
     private javax.swing.JButton coughbtn;
     private javax.swing.JButton headachebtn;
