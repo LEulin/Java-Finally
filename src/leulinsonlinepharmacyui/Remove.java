@@ -44,7 +44,7 @@ public class Remove extends javax.swing.JFrame {
         headachebtn = new javax.swing.JButton();
         bodypainbtn = new javax.swing.JButton();
         allergiesbtn = new javax.swing.JButton();
-        backBTN = new javax.swing.JButton();
+        pharmaback = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         medbrand = new javax.swing.JTextField();
         removebtn = new javax.swing.JButton();
@@ -119,13 +119,13 @@ public class Remove extends javax.swing.JFrame {
             }
         });
 
-        backBTN.setBackground(new java.awt.Color(153, 153, 153));
-        backBTN.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        backBTN.setForeground(new java.awt.Color(0, 153, 153));
-        backBTN.setText("< Back");
-        backBTN.addActionListener(new java.awt.event.ActionListener() {
+        pharmaback.setBackground(new java.awt.Color(153, 153, 153));
+        pharmaback.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        pharmaback.setForeground(new java.awt.Color(0, 153, 153));
+        pharmaback.setText("< Back");
+        pharmaback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBTNActionPerformed(evt);
+                pharmabackActionPerformed(evt);
             }
         });
 
@@ -167,10 +167,6 @@ public class Remove extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(medbrand, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(177, 177, 177))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(80, 80, 80))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,15 +180,19 @@ public class Remove extends javax.swing.JFrame {
                                 .addComponent(removebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(208, 208, 208))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(backBTN)
+                        .addComponent(pharmaback)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(80, 80, 80))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(157, 157, 157)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(headachebtn)
                     .addComponent(coughbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bodypainbtn)
-                    .addComponent(headachebtn)
                     .addComponent(allergiesbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -201,20 +201,20 @@ public class Remove extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(backBTN)
+                .addComponent(pharmaback)
                 .addGap(21, 21, 21)
                 .addComponent(jLabel7)
-                .addGap(18, 18, 18)
-                .addComponent(allergiesbtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(headachebtn)
-                .addGap(13, 13, 13)
-                .addComponent(bodypainbtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(coughbtn)
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addComponent(allergiesbtn)
+                .addGap(18, 18, 18)
+                .addComponent(headachebtn)
+                .addGap(18, 18, 18)
+                .addComponent(bodypainbtn)
+                .addGap(18, 18, 18)
+                .addComponent(coughbtn)
+                .addGap(56, 56, 56)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(medbrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -237,10 +237,10 @@ public class Remove extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void backBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBTNActionPerformed
+    private void pharmabackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pharmabackActionPerformed
         this.setVisible(false);
-        new Dashboard().setVisible(true);
-    }//GEN-LAST:event_backBTNActionPerformed
+        new PharmaDashboard().setVisible(true);
+    }//GEN-LAST:event_pharmabackActionPerformed
 
     private void removebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removebtnActionPerformed
 
@@ -412,7 +412,6 @@ public class Remove extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton allergiesbtn;
-    private javax.swing.JButton backBTN;
     private javax.swing.JButton bodypainbtn;
     private javax.swing.JComboBox comboBox;
     private javax.swing.JButton coughbtn;
@@ -423,6 +422,7 @@ public class Remove extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField medbrand;
+    private javax.swing.JButton pharmaback;
     private javax.swing.JButton removebtn;
     // End of variables declaration//GEN-END:variables
 }

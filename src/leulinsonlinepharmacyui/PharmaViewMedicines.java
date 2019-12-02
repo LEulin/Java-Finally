@@ -31,7 +31,7 @@ public class PharmaViewMedicines extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        backBTN = new javax.swing.JButton();
+        pharmaback = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         coughbtn = new javax.swing.JButton();
         headachebtn = new javax.swing.JButton();
@@ -68,13 +68,13 @@ public class PharmaViewMedicines extends javax.swing.JFrame {
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
-        backBTN.setBackground(new java.awt.Color(153, 153, 153));
-        backBTN.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        backBTN.setForeground(new java.awt.Color(0, 153, 153));
-        backBTN.setText("< Back");
-        backBTN.addActionListener(new java.awt.event.ActionListener() {
+        pharmaback.setBackground(new java.awt.Color(153, 153, 153));
+        pharmaback.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        pharmaback.setForeground(new java.awt.Color(0, 153, 153));
+        pharmaback.setText("< Back");
+        pharmaback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBTNActionPerformed(evt);
+                pharmabackActionPerformed(evt);
             }
         });
 
@@ -136,7 +136,7 @@ public class PharmaViewMedicines extends javax.swing.JFrame {
                                     .addComponent(allergiesbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(164, 164, 164))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(backBTN)
+                        .addComponent(pharmaback)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -144,7 +144,7 @@ public class PharmaViewMedicines extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(backBTN)
+                .addComponent(pharmaback)
                 .addGap(60, 60, 60)
                 .addComponent(jLabel7)
                 .addGap(39, 39, 39)
@@ -172,10 +172,10 @@ public class PharmaViewMedicines extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void backBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBTNActionPerformed
+    private void pharmabackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pharmabackActionPerformed
         this.setVisible(false);
         new PharmaDashboard().setVisible(true);
-    }//GEN-LAST:event_backBTNActionPerformed
+    }//GEN-LAST:event_pharmabackActionPerformed
 
     private void coughbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coughbtnActionPerformed
         this.setVisible(true);
@@ -234,7 +234,6 @@ public class PharmaViewMedicines extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton allergiesbtn;
-    private javax.swing.JButton backBTN;
     private javax.swing.JButton bodypainbtn;
     private javax.swing.JButton coughbtn;
     private javax.swing.JButton headachebtn;
@@ -242,5 +241,6 @@ public class PharmaViewMedicines extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton pharmaback;
     // End of variables declaration//GEN-END:variables
 }

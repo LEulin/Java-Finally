@@ -56,7 +56,7 @@ public class addMed extends javax.swing.JFrame {
         price = new javax.swing.JTextField();
         quantity = new javax.swing.JTextField();
         submit = new javax.swing.JButton();
-        backBTN = new javax.swing.JButton();
+        pharmaback = new javax.swing.JButton();
         comboBox = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -116,13 +116,13 @@ public class addMed extends javax.swing.JFrame {
             }
         });
 
-        backBTN.setBackground(new java.awt.Color(153, 153, 153));
-        backBTN.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        backBTN.setForeground(new java.awt.Color(0, 153, 153));
-        backBTN.setText("< Back");
-        backBTN.addActionListener(new java.awt.event.ActionListener() {
+        pharmaback.setBackground(new java.awt.Color(153, 153, 153));
+        pharmaback.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        pharmaback.setForeground(new java.awt.Color(0, 153, 153));
+        pharmaback.setText("< Back");
+        pharmaback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBTNActionPerformed(evt);
+                pharmabackActionPerformed(evt);
             }
         });
 
@@ -168,7 +168,7 @@ public class addMed extends javax.swing.JFrame {
                                     .addComponent(comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(backBTN))
+                        .addComponent(pharmaback))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(139, 139, 139)
                         .addComponent(jLabel7)))
@@ -179,7 +179,7 @@ public class addMed extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(backBTN)
+                .addComponent(pharmaback)
                 .addGap(53, 53, 53)
                 .addComponent(jLabel7)
                 .addGap(40, 40, 40)
@@ -279,10 +279,10 @@ public class addMed extends javax.swing.JFrame {
 
     }//GEN-LAST:event_submitActionPerformed
 
-    private void backBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBTNActionPerformed
+    private void pharmabackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pharmabackActionPerformed
         this.setVisible(false);
-        new Dashboard().setVisible(true);
-    }//GEN-LAST:event_backBTNActionPerformed
+        new PharmaDashboard().setVisible(true);
+    }//GEN-LAST:event_pharmabackActionPerformed
 
     private void comboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxActionPerformed
 //        String value = comboBox.getSelectedItem().toString();
@@ -336,7 +336,6 @@ public class addMed extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backBTN;
     private javax.swing.JTextField brandname;
     private javax.swing.JComboBox comboBox;
     private javax.swing.JTextField genname;
@@ -348,6 +347,7 @@ public class addMed extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton pharmaback;
     private javax.swing.JTextField price;
     private javax.swing.JTextField quantity;
     private javax.swing.JButton submit;

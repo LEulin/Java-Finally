@@ -36,7 +36,6 @@ public class PharmaDashboard extends javax.swing.JFrame {
         viewMedBTN = new javax.swing.JButton();
         addBTN = new javax.swing.JButton();
         removeBTN = new javax.swing.JButton();
-        viewOrderBTN = new javax.swing.JButton();
         logoutBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -99,14 +98,6 @@ public class PharmaDashboard extends javax.swing.JFrame {
             }
         });
 
-        viewOrderBTN.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        viewOrderBTN.setText("View Order List");
-        viewOrderBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewOrderBTNActionPerformed(evt);
-            }
-        });
-
         logoutBTN.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         logoutBTN.setText("Logout");
         logoutBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -130,17 +121,13 @@ public class PharmaDashboard extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addGap(96, 96, 96))))
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(181, 181, 181)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(viewMedBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(181, 181, 181)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(removeBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(addBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(viewOrderBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(logoutBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(viewMedBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(removeBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(addBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(logoutBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -149,19 +136,17 @@ public class PharmaDashboard extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(23, 23, 23)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(34, 34, 34)
                 .addComponent(viewMedBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(addBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(removeBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(viewOrderBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(logoutBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 105, Short.MAX_VALUE))
+                .addGap(0, 127, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -180,7 +165,7 @@ public class PharmaDashboard extends javax.swing.JFrame {
 
     private void viewMedBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewMedBTNActionPerformed
         this.setVisible(false);
-        new ViewMedicines().setVisible(true);
+        new PharmaViewMedicines().setVisible(true);
     }//GEN-LAST:event_viewMedBTNActionPerformed
 
     private void addBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBTNActionPerformed
@@ -192,11 +177,6 @@ public class PharmaDashboard extends javax.swing.JFrame {
         this.setVisible(false);
         new Remove().setVisible(true);
     }//GEN-LAST:event_removeBTNActionPerformed
-
-    private void viewOrderBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewOrderBTNActionPerformed
-        this.setVisible(false);
-        new ViewOrderList().setVisible(true);
-    }//GEN-LAST:event_viewOrderBTNActionPerformed
 
     private void logoutBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBTNActionPerformed
         this.setVisible(false);
@@ -248,6 +228,5 @@ public class PharmaDashboard extends javax.swing.JFrame {
     private javax.swing.JButton logoutBTN;
     private javax.swing.JButton removeBTN;
     private javax.swing.JButton viewMedBTN;
-    private javax.swing.JButton viewOrderBTN;
     // End of variables declaration//GEN-END:variables
 }
