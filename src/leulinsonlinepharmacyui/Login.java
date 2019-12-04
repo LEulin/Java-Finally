@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import leulinsonlinepharmacyui.storage;
+import leulinsonlinepharmacyui.Storage;
 import onlinepurchase.Adult;
 import onlinepurchase.MedicinesForAllergies;
 import onlinepurchase.MedicinesForBodyPain;
@@ -33,8 +33,8 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form LoginPanel1
      */
-    storage store = new storage();
-    storage store1 = new storage();
+    Storage store = new Storage();
+    Storage store1 = new Storage();
 
     public Login() {
         initComponents();

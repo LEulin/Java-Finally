@@ -51,52 +51,52 @@ public class Dashboard extends javax.swing.JFrame {
         buttonGroup4 = new javax.swing.ButtonGroup();
         buttonGroup5 = new javax.swing.ButtonGroup();
         buttonGroup6 = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        dashboardPanel = new javax.swing.JPanel();
+        headPanel = new javax.swing.JPanel();
+        dashLabel = new javax.swing.JLabel();
+        welcomeLabel = new javax.swing.JLabel();
         viewMedBTN = new javax.swing.JButton();
         purchaseBTN = new javax.swing.JButton();
         logoutBTN = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        selectLabel = new javax.swing.JLabel();
 
         jFormattedTextField1.setText("jFormattedTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel1.setBorder(new javax.swing.border.MatteBorder(null));
-        jPanel1.setAutoscrolls(true);
-        jPanel1.setPreferredSize(new java.awt.Dimension(485, 545));
+        dashboardPanel.setBackground(new java.awt.Color(0, 153, 153));
+        dashboardPanel.setBorder(new javax.swing.border.MatteBorder(null));
+        dashboardPanel.setAutoscrolls(true);
+        dashboardPanel.setPreferredSize(new java.awt.Dimension(485, 545));
 
-        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
-        jPanel2.setPreferredSize(new java.awt.Dimension(307, 88));
+        headPanel.setBackground(new java.awt.Color(153, 153, 153));
+        headPanel.setPreferredSize(new java.awt.Dimension(307, 88));
 
-        jLabel1.setBackground(new java.awt.Color(0, 102, 102));
-        jLabel1.setFont(new java.awt.Font("Rockwell", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel1.setText("Dashboard");
+        dashLabel.setBackground(new java.awt.Color(0, 102, 102));
+        dashLabel.setFont(new java.awt.Font("Rockwell", 1, 24)); // NOI18N
+        dashLabel.setForeground(new java.awt.Color(0, 102, 102));
+        dashLabel.setText("Dashboard");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout headPanelLayout = new javax.swing.GroupLayout(headPanel);
+        headPanel.setLayout(headPanelLayout);
+        headPanelLayout.setHorizontalGroup(
+            headPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headPanelLayout.createSequentialGroup()
                 .addGap(175, 175, 175)
-                .addComponent(jLabel1)
+                .addComponent(dashLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        headPanelLayout.setVerticalGroup(
+            headPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headPanelLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(jLabel1)
+                .addComponent(dashLabel)
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
-        jLabel2.setFont(new java.awt.Font("Rockwell", 1, 20)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 153, 102));
-        jLabel2.setText("----- Welcome to LEulin's Online Pharmacy ----- ");
+        welcomeLabel.setFont(new java.awt.Font("Rockwell", 1, 20)); // NOI18N
+        welcomeLabel.setForeground(new java.awt.Color(255, 153, 102));
+        welcomeLabel.setText("----- Welcome to LEulin's Online Pharmacy ----- ");
 
         viewMedBTN.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         viewMedBTN.setText("View Medicine");
@@ -122,39 +122,39 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Rockwell", 1, 20)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 51, 0));
-        jLabel4.setText("Select activity you want to do:");
+        selectLabel.setFont(new java.awt.Font("Rockwell", 1, 20)); // NOI18N
+        selectLabel.setForeground(new java.awt.Color(153, 51, 0));
+        selectLabel.setText("Select activity you want to do:");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout dashboardPanelLayout = new javax.swing.GroupLayout(dashboardPanel);
+        dashboardPanel.setLayout(dashboardPanelLayout);
+        dashboardPanelLayout.setHorizontalGroup(
+            dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(headPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
+            .addGroup(dashboardPanelLayout.createSequentialGroup()
+                .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dashboardPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(welcomeLabel))
+                    .addGroup(dashboardPanelLayout.createSequentialGroup()
                         .addGap(110, 110, 110)
-                        .addComponent(jLabel4))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(selectLabel))
+                    .addGroup(dashboardPanelLayout.createSequentialGroup()
                         .addGap(189, 189, 189)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(viewMedBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(purchaseBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(logoutBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        dashboardPanelLayout.setVerticalGroup(
+            dashboardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dashboardPanelLayout.createSequentialGroup()
+                .addComponent(headPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addComponent(welcomeLabel)
                 .addGap(39, 39, 39)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(selectLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(viewMedBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -168,11 +168,11 @@ public class Dashboard extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
+            .addComponent(dashboardPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(dashboardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -180,7 +180,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void viewMedBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewMedBTNActionPerformed
         this.setVisible(false);
-        new ViewMedicines().setVisible(true);
+        new CustomerViewMedicines().setVisible(true);
     }//GEN-LAST:event_viewMedBTNActionPerformed
 
     private void purchaseBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchaseBTNActionPerformed
@@ -235,14 +235,14 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.ButtonGroup buttonGroup5;
     private javax.swing.ButtonGroup buttonGroup6;
+    private javax.swing.JLabel dashLabel;
+    private javax.swing.JPanel dashboardPanel;
+    private javax.swing.JPanel headPanel;
     private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JButton logoutBTN;
     private javax.swing.JButton purchaseBTN;
+    private javax.swing.JLabel selectLabel;
     private javax.swing.JButton viewMedBTN;
+    private javax.swing.JLabel welcomeLabel;
     // End of variables declaration//GEN-END:variables
 }
