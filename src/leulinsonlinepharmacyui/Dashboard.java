@@ -180,12 +180,12 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void viewMedBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewMedBTNActionPerformed
         this.setVisible(false);
-        new CustomerViewMedicines().setVisible(true);
+        new CustomerViewMedicines(uname).setVisible(true);
     }//GEN-LAST:event_viewMedBTNActionPerformed
 
     private void purchaseBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchaseBTNActionPerformed
         this.setVisible(false);
-        new Purchase().setVisible(true);
+        new Purchase(uname).setVisible(true);
     }//GEN-LAST:event_purchaseBTNActionPerformed
 
     private void logoutBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBTNActionPerformed
@@ -222,6 +222,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Dashboard().setVisible(true);
             }

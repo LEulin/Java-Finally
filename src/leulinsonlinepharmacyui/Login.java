@@ -23,6 +23,7 @@ import onlinepurchase.Orders;
 import onlinepurchase.Pharmacist;
 import onlinepurchase.Senior;
 import onlinepurchase.User;
+import Controller.Controller;
 
 /**
  *
@@ -33,6 +34,8 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form LoginPanel1
      */
+    Controller control = new Controller();
+
     Storage store = new Storage();
     Storage store1 = new Storage();
 
@@ -245,43 +248,21 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_usernameActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-
         String uname = username.getText();
         String pass = password.getText();
 
-        if ("Lealyn".equals(uname) && "Eulin".equals(pass)) {
-            JOptionPane.showMessageDialog(null, "Logged in as pharmacist!");
+        if (control.login(uname, pass) == 500) {
+            JOptionPane.showMessageDialog(rootPane, "Logged in as pharmacist!");
             PharmaDashboard pdash = new PharmaDashboard();
-            this.setVisible(false);
+            this.dispose();
             pdash.setVisible(true);
-        } else {
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/eulin", "root", "");
-                Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT * FROM `userlist` WHERE username='" + uname + "'");
-
-                if (rs.next()) {
-                    if (rs.getString("password").equals(pass)) {
-                        this.dispose();
-                        JOptionPane.showMessageDialog(null, "Welcome to LEulin's Online Pharmacy!");
-                        JOptionPane.showMessageDialog(null, "Logged in as customer!");
-                        Dashboard dash = new Dashboard(uname);
-                        dash.setVisible(true);
-
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Password is incorrect!");
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "Username does not exist!");
-                }
-
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Error Connecting!");
-
-            }
+        } else if (control.login(uname, pass) == 600) {
+            JOptionPane.showMessageDialog(rootPane, "Welcome to LEulin's Online Pharmacy!");
+            JOptionPane.showMessageDialog(rootPane, "Logged in as customer!");
+            Dashboard dash = new Dashboard(uname);
+            this.dispose();
+            dash.setVisible(true);
         }
-
 
     }//GEN-LAST:event_loginButtonActionPerformed
 

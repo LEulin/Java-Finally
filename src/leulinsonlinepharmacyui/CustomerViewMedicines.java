@@ -16,9 +16,19 @@ public class CustomerViewMedicines extends javax.swing.JFrame {
     /**
      * Creates new form ViewMedicines
      */
+    String uname;
+    
+    
     public CustomerViewMedicines() {
         initComponents();
         this.setTitle("View Medicine");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }
+    
+     public CustomerViewMedicines(String username) {
+        initComponents();
+        this.setTitle("View Medicine");
+        uname = username;
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
@@ -228,22 +238,22 @@ public class CustomerViewMedicines extends javax.swing.JFrame {
 
     private void allergiesbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allergiesbtnActionPerformed
         this.setVisible(true);
-        new MforAllergies().setVisible(true);
+        new MforAllergies(uname).setVisible(true);
     }//GEN-LAST:event_allergiesbtnActionPerformed
 
     private void coughbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coughbtnActionPerformed
         this.setVisible(true);
-        new MforCough().setVisible(true);
+        new MforCough(uname).setVisible(true);
     }//GEN-LAST:event_coughbtnActionPerformed
 
     private void bodypainbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bodypainbtnActionPerformed
         this.setVisible(true);
-        new MforBodyPain().setVisible(true);
+        new MforBodyPain(uname).setVisible(true);
     }//GEN-LAST:event_bodypainbtnActionPerformed
 
     private void headachebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_headachebtnActionPerformed
         this.setVisible(true);
-        new MforHeadache().setVisible(true);
+        new MforHeadache(uname).setVisible(true);
     }//GEN-LAST:event_headachebtnActionPerformed
 
     private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked

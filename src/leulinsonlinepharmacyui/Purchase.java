@@ -7,6 +7,7 @@
 package leulinsonlinepharmacyui;
 
 import javax.swing.JFrame;
+import Controller.Controller;
 
 /**
  *
@@ -17,9 +18,18 @@ public class Purchase extends javax.swing.JFrame {
     /**
      * Creates new form Purchase
      */
+    String uname;
+    
     public Purchase() {
         initComponents();
         this.setTitle("Purchase");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }
+    
+    public Purchase(String username) {
+        initComponents();
+        this.setTitle("Purchase");
+        uname = username;
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
@@ -38,7 +48,7 @@ public class Purchase extends javax.swing.JFrame {
         backBTN = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        id = new javax.swing.JTextField();
+        brandname = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         quantity = new javax.swing.JTextField();
         coughbtn = new javax.swing.JButton();
@@ -76,7 +86,7 @@ public class Purchase extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel1)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         backBTN.setBackground(new java.awt.Color(153, 153, 153));
@@ -96,9 +106,9 @@ public class Purchase extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel3.setText("Enter medicine brand name  you want to purchase:");
 
-        id.addActionListener(new java.awt.event.ActionListener() {
+        brandname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idActionPerformed(evt);
+                brandnameActionPerformed(evt);
             }
         });
 
@@ -138,6 +148,11 @@ public class Purchase extends javax.swing.JFrame {
         });
 
         purchasebtn.setText("Purchase");
+        purchasebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                purchasebtnMouseClicked(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel5.setText("Enter Money:");
@@ -184,7 +199,7 @@ public class Purchase extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addGap(60, 60, 60))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(brandname, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(148, 148, 148))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -206,7 +221,7 @@ public class Purchase extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(brandname, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -239,9 +254,9 @@ public class Purchase extends javax.swing.JFrame {
         new Dashboard().setVisible(true);
     }//GEN-LAST:event_backBTNActionPerformed
 
-    private void idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idActionPerformed
+    private void brandnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brandnameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_idActionPerformed
+    }//GEN-LAST:event_brandnameActionPerformed
 
     private void coughbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coughbtnActionPerformed
         this.setVisible(true);
@@ -262,6 +277,20 @@ public class Purchase extends javax.swing.JFrame {
         this.setVisible(true);
         new MforAllergies().setVisible(true);
     }//GEN-LAST:event_allergiesbtnActionPerformed
+
+    private void purchasebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_purchasebtnMouseClicked
+        String bname = brandname.getText();
+        String qty = quantity.getText();
+        String cash = money.getText();
+        
+        Controller control = new Controller();
+        if(control.purchase(uname, bname, qty, cash) == true){
+            this.dispose();
+            Dashboard dash = new Dashboard(uname);
+            dash.setVisible(true);
+        }
+        
+    }//GEN-LAST:event_purchasebtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -292,6 +321,7 @@ public class Purchase extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Purchase().setVisible(true);
             }
@@ -302,9 +332,9 @@ public class Purchase extends javax.swing.JFrame {
     private javax.swing.JButton allergiesbtn;
     private javax.swing.JButton backBTN;
     private javax.swing.JButton bodypainbtn;
+    private javax.swing.JTextField brandname;
     private javax.swing.JButton coughbtn;
     private javax.swing.JButton headachebtn;
-    private javax.swing.JTextField id;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

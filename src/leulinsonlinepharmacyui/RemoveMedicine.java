@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import Controller.Controller;
 
 /**
  *
@@ -22,6 +23,8 @@ public class RemoveMedicine extends javax.swing.JFrame {
     /**
      * Creates new form Add
      */
+    Controller control = new Controller();
+
     public RemoveMedicine() {
         initComponents();
         this.setTitle("Remove Medicine");

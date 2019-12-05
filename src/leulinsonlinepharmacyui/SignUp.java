@@ -5,16 +5,8 @@
  */
 package leulinsonlinepharmacyui;
 
-import java.awt.HeadlessException;
-import java.sql.Statement;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import leulinsonlinepharmacyui.Login;
-import onlinepurchase.*;
+import Controller.Controller;
 
 /**
  *
@@ -23,6 +15,7 @@ import onlinepurchase.*;
 public class SignUp extends javax.swing.JFrame {
 
     Storage store = new Storage();
+    Controller control = new Controller();
 
     /**
      * Creates new form Login
@@ -270,24 +263,6 @@ public class SignUp extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-
-//        if (Integer.parseInt(age1) >= 18 && Integer.parseInt(age1) <= 59) {
-//            store.getUserList().add(new Adult(store.getUserList().size() + 1, uname, pass, Integer.parseInt(age1)));
-//            JOptionPane.showMessageDialog(null, "User Added!");
-//            this.setVisible(false);
-//            LoginPanel1 log = new LoginPanel1();
-//            log.setVisible(true);
-//        } else if (Integer.parseInt(age1) >= 60) {
-//            store.getUserList().add(new Senior(store.getUserList().size() + 1, uname, pass, Integer.parseInt(age1)));
-//            JOptionPane.showMessageDialog(null, "User Added!");
-//            this.setVisible(false);
-//            LoginPanel1 log = new LoginPanel1();
-//            log.setVisible(true);
-//
-//        } else {
-//            JOptionPane.showMessageDialog(null, "Can't register minor age!");
-//        }
-
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void ageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageActionPerformed
@@ -311,41 +286,13 @@ public class SignUp extends javax.swing.JFrame {
         String uname = username.getText();
         String pass = password.getText();
         String age1 = age.getText();
-
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/eulin", "root", "");
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM `userlist` WHERE username='" + uname + "'");
-
-
-            if (rs.next()) {
-                JOptionPane.showMessageDialog(null, "Username already exist!");
-
-            } else {
-                try {
-                    int age = Integer.parseInt(age1);
-                    if (age < 18) {
-                        JOptionPane.showMessageDialog(null, "Too young to register!");
-                    } else {
-                        String sql = "INSERT INTO `userlist`(`username`, `age`, `password`) VALUES ('" + uname + "'," + age + ",'" + pass + "')";
-                        stmt.executeUpdate(sql);
-                        JOptionPane.showMessageDialog(null, "Registered!");
-                        this.setVisible(false);
-                        Login login = new Login();
-                        login.setVisible(true);
-                    }
-                } catch (NumberFormatException | HeadlessException | SQLException e) {
-                    JOptionPane.showMessageDialog(null, "Age should be a number!");
-
-                }
-            }
-            con.close();
-
-        } catch (ClassNotFoundException | SQLException | HeadlessException e) {
-            JOptionPane.showMessageDialog(null, "Error connecting!");
-
+        if (control.register(uname, age1, pass) == true) {
+            this.dispose();
+            Login login = new Login();
+            login.setVisible(true);
         }
+
+
     }//GEN-LAST:event_registerButtonMouseClicked
 
     /**

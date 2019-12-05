@@ -101,7 +101,7 @@
                           <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="id" min="-2" pref="176" max="-2" attributes="0"/>
+                          <Component id="brandname" min="-2" pref="176" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -127,7 +127,7 @@
                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="id" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="brandname" min="-2" pref="20" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -171,7 +171,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="30" max="32767" attributes="0"/>
+                      <EmptySpace pref="27" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -226,9 +226,9 @@
             <Property name="text" type="java.lang.String" value="Enter medicine brand name  you want to purchase:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="id">
+        <Component class="javax.swing.JTextField" name="brandname">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="brandnameActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
@@ -289,6 +289,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Purchase"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="purchasebtnMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>

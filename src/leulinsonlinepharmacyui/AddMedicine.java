@@ -16,6 +16,8 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import DBpart.Model;
 
+import Controller.Controller;
+
 /**
  *
  * @author eulinle_sd2022
@@ -25,14 +27,12 @@ public class AddMedicine extends javax.swing.JFrame {
     /**
      * Creates new form addMed
      */
+    Controller control = new Controller();
+
     public AddMedicine() {
         initComponents();
         this.setTitle("Add Medicine");
     }
-    
-    
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -220,58 +220,17 @@ public class AddMedicine extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submitMouseClicked
-//        Model mod = new Model();
         String brand = brandname.getText();
         String gen = genname.getText();
-        String a = "Allergies";
-        String b = "Headache";
-        String c = "Body Pain";
-        String d = "Cough";
         String quant = quantity.getText();
         String prc = price.getText();
         String dropDownValue = (String) comboBox.getSelectedItem();
         String typ = dropDownValue;
-        
-        int qty = Integer.parseInt(quant);
-        double price = Double.parseDouble(prc);
-        
-        String sql1 = "INSERT INTO `medicineforallergies` (`brandname`, `genericname`, `type`, `quantity`, `price`) VALUES ('" + brand + "', '" + gen + "', '" + typ + "', " + qty + ", " + price + ")";
-        String sql2 = "INSERT INTO `medicineforheadache` (`brandname`, `genericname`, `type`, `quantity`, `price`) VALUES ('" + brand + "', '" + gen + "', '" + typ + "', " + qty + ", " + price + ")";
-        String sql3 = "INSERT INTO `medicineforbodypain` (`brandname`, `genericname`, `type`, `quantity`, `price`) VALUES ('" + brand + "', '" + gen + "', '" + typ + "', " + qty + ", " + price + ")";
-        String sql4 = "INSERT INTO `medicineforcough` (`brandname`, `genericname`, `type`, `quantity`, `price`) VALUES ('" + brand + "', '" + gen + "', '" + typ + "', " + qty + ", " + price + ")";
 
-//        JOptionPane.showMessageDialog(rootPane,dropDownValue);
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/eulin", "root", "");
-            Statement stmt = con.createStatement();
-
-            if (typ.equals(a) == true) {
-                stmt.executeUpdate(sql1);
-                JOptionPane.showMessageDialog(rootPane, "Medicine added successfully!");
-                this.dispose();
-                new PharmaDashboard().setVisible(true);
-            } else if (typ.equals(b) == true) {
-                stmt.executeUpdate(sql2);
-                JOptionPane.showMessageDialog(rootPane, "Medicine added successfully!");
-                this.dispose();
-                new PharmaDashboard().setVisible(true);
-            } else if (typ.equals(c) == true) {
-                stmt.executeUpdate(sql3);
-                JOptionPane.showMessageDialog(rootPane, "Medicine added successfully!");
-                this.dispose();
-                new PharmaDashboard().setVisible(true);
-            } else if (typ.equals(d) == true) {
-                stmt.executeUpdate(sql4);
-                JOptionPane.showMessageDialog(rootPane, "Medicine added successfully!");
-                this.dispose();
-                new PharmaDashboard().setVisible(true);
-            } else {
-                JOptionPane.showMessageDialog(rootPane, typ);
-            }
-            con.close();
-        } catch (HeadlessException | ClassNotFoundException | SQLException e) {
-            JOptionPane.showMessageDialog(rootPane, "Error connecting to database!");
+        if (control.addMedicine(gen, brand, typ, prc, quant) == true) {
+            JOptionPane.showMessageDialog(null, "Medicine added successfully!");
+            this.dispose();
+            new PharmaDashboard().setVisible(true);
         }
     }//GEN-LAST:event_submitMouseClicked
 
