@@ -14,7 +14,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import DBpart.Model;
+import Model.Model;
 
 import Controller.Controller;
 
@@ -226,8 +226,8 @@ public class AddMedicine extends javax.swing.JFrame {
         String prc = price.getText();
         String dropDownValue = (String) comboBox.getSelectedItem();
         String typ = dropDownValue;
-
-        if (control.addMedicine(gen, brand, typ, prc, quant) == true) {
+        
+        if (control.addMedicine(brand,gen, typ, quant, prc) == true) {
             JOptionPane.showMessageDialog(null, "Medicine added successfully!");
             this.dispose();
             new PharmaDashboard().setVisible(true);

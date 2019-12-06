@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -42,51 +42,56 @@ public class Purchase extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        backBTN = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        brandname = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        quantity = new javax.swing.JTextField();
         coughbtn = new javax.swing.JButton();
-        headachebtn = new javax.swing.JButton();
-        bodypainbtn = new javax.swing.JButton();
-        allergiesbtn = new javax.swing.JButton();
+        purchasePanel = new javax.swing.JPanel();
+        headerPanel = new javax.swing.JPanel();
+        headerLabel = new javax.swing.JLabel();
+        backBTN = new javax.swing.JButton();
+        enterLabel = new javax.swing.JLabel();
+        brandname = new javax.swing.JTextField();
+        quantLabel = new javax.swing.JLabel();
+        quantity = new javax.swing.JTextField();
         purchasebtn = new javax.swing.JToggleButton();
-        jLabel5 = new javax.swing.JLabel();
+        moneyLabel = new javax.swing.JLabel();
         money = new javax.swing.JTextField();
+        clicktoview = new javax.swing.JButton();
+
+        coughbtn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        coughbtn.setText("Medicine for Cough");
+        coughbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                coughbtnActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel1.setBorder(new javax.swing.border.MatteBorder(null));
-        jPanel1.setPreferredSize(new java.awt.Dimension(485, 545));
+        purchasePanel.setBackground(new java.awt.Color(0, 153, 153));
+        purchasePanel.setBorder(new javax.swing.border.MatteBorder(null));
+        purchasePanel.setPreferredSize(new java.awt.Dimension(485, 545));
 
-        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
-        jPanel2.setPreferredSize(new java.awt.Dimension(307, 88));
+        headerPanel.setBackground(new java.awt.Color(153, 153, 153));
+        headerPanel.setPreferredSize(new java.awt.Dimension(307, 88));
 
-        jLabel1.setFont(new java.awt.Font("Rockwell", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel1.setText("Purchase");
+        headerLabel.setFont(new java.awt.Font("Rockwell", 1, 24)); // NOI18N
+        headerLabel.setForeground(new java.awt.Color(0, 102, 102));
+        headerLabel.setText("Purchase");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout headerPanelLayout = new javax.swing.GroupLayout(headerPanel);
+        headerPanel.setLayout(headerPanelLayout);
+        headerPanelLayout.setHorizontalGroup(
+            headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerPanelLayout.createSequentialGroup()
                 .addGap(189, 189, 189)
-                .addComponent(jLabel1)
+                .addComponent(headerLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        headerPanelLayout.setVerticalGroup(
+            headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerPanelLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addComponent(jLabel1)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addComponent(headerLabel)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         backBTN.setBackground(new java.awt.Color(153, 153, 153));
@@ -99,12 +104,8 @@ public class Purchase extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 204, 0));
-        jLabel2.setText("Enter Medicine to Purchase:");
-
-        jLabel3.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel3.setText("Enter medicine brand name  you want to purchase:");
+        enterLabel.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        enterLabel.setText("Enter medicine brand name  you want to purchase:");
 
         brandname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,40 +113,8 @@ public class Purchase extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel4.setText("Enter Quantity:");
-
-        coughbtn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        coughbtn.setText("Medicine for Cough");
-        coughbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                coughbtnActionPerformed(evt);
-            }
-        });
-
-        headachebtn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        headachebtn.setText("Medicine for Headache");
-        headachebtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                headachebtnActionPerformed(evt);
-            }
-        });
-
-        bodypainbtn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        bodypainbtn.setText("Medicine for Body Pain");
-        bodypainbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bodypainbtnActionPerformed(evt);
-            }
-        });
-
-        allergiesbtn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        allergiesbtn.setText("Medicine for Allergies");
-        allergiesbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                allergiesbtnActionPerformed(evt);
-            }
-        });
+        quantLabel.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        quantLabel.setText("Enter Quantity:");
 
         purchasebtn.setText("Purchase");
         purchasebtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -154,96 +123,84 @@ public class Purchase extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel5.setText("Enter Money:");
+        moneyLabel.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        moneyLabel.setText("Enter Money:");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        clicktoview.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        clicktoview.setText("Click here to view medicines");
+        clicktoview.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clicktoviewActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout purchasePanelLayout = new javax.swing.GroupLayout(purchasePanel);
+        purchasePanel.setLayout(purchasePanelLayout);
+        purchasePanelLayout.setHorizontalGroup(
+            purchasePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
+            .addGroup(purchasePanelLayout.createSequentialGroup()
+                .addGroup(purchasePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(purchasePanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(backBTN))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(purchasePanelLayout.createSequentialGroup()
                         .addGap(129, 129, 129)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
+                        .addGroup(purchasePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(brandname, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(purchasePanelLayout.createSequentialGroup()
+                                .addGroup(purchasePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(quantLabel)
+                                    .addComponent(moneyLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(money, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(164, 164, 164)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(headachebtn)
-                            .addComponent(coughbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bodypainbtn, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(allergiesbtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(199, 199, 199)
-                        .addComponent(purchasebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addComponent(jLabel2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 72, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(60, 60, 60))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(brandname, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(148, 148, 148))))
+                                .addGroup(purchasePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(money, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(purchasePanelLayout.createSequentialGroup()
+                        .addGap(148, 148, 148)
+                        .addComponent(clicktoview, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(purchasePanelLayout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(enterLabel))
+                    .addGroup(purchasePanelLayout.createSequentialGroup()
+                        .addGap(200, 200, 200)
+                        .addComponent(purchasebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        purchasePanelLayout.setVerticalGroup(
+            purchasePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(purchasePanelLayout.createSequentialGroup()
+                .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(backBTN)
-                .addGap(21, 21, 21)
-                .addComponent(jLabel2)
+                .addGap(29, 29, 29)
+                .addComponent(clicktoview, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(enterLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(brandname, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addGroup(purchasePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(quantLabel)
+                    .addComponent(quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(coughbtn)
-                .addGap(18, 18, 18)
-                .addComponent(headachebtn)
-                .addGap(18, 18, 18)
-                .addComponent(bodypainbtn)
-                .addGap(18, 18, 18)
-                .addComponent(allergiesbtn)
-                .addGap(39, 39, 39)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(brandname, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(quantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(money, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
+                .addGroup(purchasePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(moneyLabel)
+                    .addComponent(money, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addComponent(purchasebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addGap(44, 44, 44))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(purchasePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 649, Short.MAX_VALUE)
+            .addComponent(purchasePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -251,7 +208,7 @@ public class Purchase extends javax.swing.JFrame {
 
     private void backBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBTNActionPerformed
         this.setVisible(false);
-        new Dashboard().setVisible(true);
+        new CustomerDashboard().setVisible(true);
     }//GEN-LAST:event_backBTNActionPerformed
 
     private void brandnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brandnameActionPerformed
@@ -259,24 +216,8 @@ public class Purchase extends javax.swing.JFrame {
     }//GEN-LAST:event_brandnameActionPerformed
 
     private void coughbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coughbtnActionPerformed
-        this.setVisible(true);
-        new MforCough().setVisible(true);
+
     }//GEN-LAST:event_coughbtnActionPerformed
-
-    private void headachebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_headachebtnActionPerformed
-        this.setVisible(true);
-        new MforHeadache().setVisible(true);
-    }//GEN-LAST:event_headachebtnActionPerformed
-
-    private void bodypainbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bodypainbtnActionPerformed
-        this.setVisible(true);
-        new MforBodyPain().setVisible(true);
-    }//GEN-LAST:event_bodypainbtnActionPerformed
-
-    private void allergiesbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allergiesbtnActionPerformed
-        this.setVisible(true);
-        new MforAllergies().setVisible(true);
-    }//GEN-LAST:event_allergiesbtnActionPerformed
 
     private void purchasebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_purchasebtnMouseClicked
         String bname = brandname.getText();
@@ -286,11 +227,15 @@ public class Purchase extends javax.swing.JFrame {
         Controller control = new Controller();
         if(control.purchase(uname, bname, qty, cash) == true){
             this.dispose();
-            Dashboard dash = new Dashboard(uname);
+            CustomerDashboard dash = new CustomerDashboard(uname);
             dash.setVisible(true);
         }
         
     }//GEN-LAST:event_purchasebtnMouseClicked
+
+    private void clicktoviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clicktoviewActionPerformed
+         new CustomerViewMedicine().setVisible(true);
+    }//GEN-LAST:event_clicktoviewActionPerformed
 
     /**
      * @param args the command line arguments
@@ -329,21 +274,18 @@ public class Purchase extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton allergiesbtn;
     private javax.swing.JButton backBTN;
-    private javax.swing.JButton bodypainbtn;
     private javax.swing.JTextField brandname;
+    private javax.swing.JButton clicktoview;
     private javax.swing.JButton coughbtn;
-    private javax.swing.JButton headachebtn;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel enterLabel;
+    private javax.swing.JLabel headerLabel;
+    private javax.swing.JPanel headerPanel;
     private javax.swing.JTextField money;
+    private javax.swing.JLabel moneyLabel;
+    private javax.swing.JPanel purchasePanel;
     private javax.swing.JToggleButton purchasebtn;
+    private javax.swing.JLabel quantLabel;
     private javax.swing.JTextField quantity;
     // End of variables declaration//GEN-END:variables
 }

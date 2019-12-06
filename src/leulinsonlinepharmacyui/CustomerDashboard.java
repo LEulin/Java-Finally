@@ -12,7 +12,7 @@ import javax.swing.JFrame;
  *
  * @author eulinle_sd2022
  */
-public class Dashboard extends javax.swing.JFrame {
+public class CustomerDashboard extends javax.swing.JFrame {
 
     /**
      * Creates new form Dashboard
@@ -21,13 +21,13 @@ public class Dashboard extends javax.swing.JFrame {
     
     
     
-    public Dashboard() {
+    public CustomerDashboard() {
         initComponents();
         this.setTitle("Dashboard");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
     
-    public Dashboard(String username) {
+    public CustomerDashboard(String username) {
         initComponents();
         this.setTitle("Dashboard");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -180,7 +180,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void viewMedBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewMedBTNActionPerformed
         this.setVisible(false);
-        new CustomerViewMedicines(uname).setVisible(true);
+        new CustomerViewMedicine().setVisible(true);
     }//GEN-LAST:event_viewMedBTNActionPerformed
 
     private void purchaseBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchaseBTNActionPerformed
@@ -210,13 +210,13 @@ public class Dashboard extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -224,7 +224,7 @@ public class Dashboard extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new Dashboard().setVisible(true);
+                new CustomerDashboard().setVisible(true);
             }
         });
     }

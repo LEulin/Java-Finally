@@ -56,9 +56,9 @@ public class Model {
                                         JOptionPane.showMessageDialog(null, "Insufficient cash to purchase!");
                                     } else {
                                         JOptionPane.showConfirmDialog(null, "The amount is: " + adultAmount);
-                                        String sql = "UPDATE `medicine` SET `stock`=" + (stock - qty) + "WHERE `brandname`='" + bname + "'";
+                                        String sql = "UPDATE `medicine` SET quantity=" + (stock - qty) + "WHERE `brandname`='" + bname + "'";
                                         stmt.executeUpdate(sql);
-                                        JOptionPane.showConfirmDialog(null, "TSuccessfully purchased!\nYour change is:" + (cash - adultAmount));
+                                        JOptionPane.showConfirmDialog(null, "Successfully purchased!\nYour change is:" + (cash - adultAmount));
                                         return success = true;
                                     }
                                 }
@@ -72,7 +72,7 @@ public class Model {
                                         JOptionPane.showConfirmDialog(null, "The amount is: " + seniorAmount);
                                         String sql = "DELETE FROM `medicine` WHERE `brandname`='" + bname + "'";
                                         stmt.executeUpdate(sql);
-                                        JOptionPane.showConfirmDialog(null, "TSuccessfully purchased!\nYour change is:" + (cash - seniorAmount));
+                                        JOptionPane.showConfirmDialog(null, "Successfully purchased!\nYour change is:" + (cash - seniorAmount));
                                         return success = true;
                                     }
                                 } else {
@@ -80,9 +80,9 @@ public class Model {
                                         JOptionPane.showMessageDialog(null, "Insufficient cash to purchase!");
                                     } else {
                                         JOptionPane.showConfirmDialog(null, "The amount is: " + seniorAmount);
-                                        String sql = "UPDATE `medicine` SET `stock`=" + (stock - qty) + "WHERE `brandname`='" + bname + "'";
+                                        String sql = "UPDATE `medicine` SET quantity=" + (stock - qty) + "WHERE `brandname`='" + bname + "'";
                                         stmt.executeUpdate(sql);
-                                        JOptionPane.showConfirmDialog(null, "TSuccessfully purchased!\nYour change is:" + (cash - seniorAmount));
+                                        JOptionPane.showConfirmDialog(null, "Successfully purchased!\nYour change is:" + (cash - seniorAmount));
                                         return success = true;
                                     }
                                 }
@@ -106,7 +106,6 @@ public class Model {
 
     public int login(String username, String password) {
         int success = 400;
-        boolean exist = false;
         if ("Lealyn".equals(username) && "Eulin".equals(password)) {
             return success = 500;
         } else {
@@ -146,38 +145,46 @@ public class Model {
         return success;
     }
 
-    public boolean addMedicine(String gen, String brand, String typ, double price, int qty) {
+    public boolean addMedicine(String brand, String gen, String typ, int qty, double price) {
         boolean success = false;
-        String a = "Allergies";
-        String b = "Headache";
-        String c = "Body Pain";
-        String d = "Cough";
-        String sql1 = "INSERT INTO `medicineforallergies` (`brandname`, `genericname`, `type`, `quantity`, `price`) VALUES ('" + brand + "', '" + gen + "', '" + typ + "', " + qty + ", " + price + ")";
-        String sql2 = "INSERT INTO `medicineforheadache` (`brandname`, `genericname`, `type`, `quantity`, `price`) VALUES ('" + brand + "', '" + gen + "', '" + typ + "', " + qty + ", " + price + ")";
-        String sql3 = "INSERT INTO `medicineforbodypain` (`brandname`, `genericname`, `type`, `quantity`, `price`) VALUES ('" + brand + "', '" + gen + "', '" + typ + "', " + qty + ", " + price + ")";
-        String sql4 = "INSERT INTO `medicineforcough` (`brandname`, `genericname`, `type`, `quantity`, `price`) VALUES ('" + brand + "', '" + gen + "', '" + typ + "', " + qty + ", " + price + ")";
-
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/eulin", "root", "");
             Statement stmt = con.createStatement();
+            String a = "Allergies";
+            String b = "Headache";
+            String c = "Body Pain";
+            String d = "Cough";
+            String sql1 = "INSERT INTO `medicine` (`brandname`, `genericname`, `type`, `quantity`, `price`) VALUES ('" + brand + "', '" + gen + "', '" + typ + "', " + qty + ", " + price + ")";
 
             if (typ.equals(a) == true) {
                 stmt.executeUpdate(sql1);
-                return success = true;
             } else if (typ.equals(b) == true) {
-                stmt.executeUpdate(sql2);
-                return success = true;
+                stmt.executeUpdate(sql1);
             } else if (typ.equals(c) == true) {
-                stmt.executeUpdate(sql3);
-                return success = true;
+                stmt.executeUpdate(sql1);
             } else if (typ.equals(d) == true) {
-                stmt.executeUpdate(sql4);
-                return success = true;
+                stmt.executeUpdate(sql1);
             }
             con.close();
         } catch (HeadlessException | ClassNotFoundException | SQLException e) {
             JOptionPane.showMessageDialog(null, "Error connecting to database!");
+        }
+        return success;
+    }
+
+    public boolean removeMedicine(String bname) {
+        boolean success = false;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/eulin", "root", "");
+            Statement stmt = con.createStatement();
+            String sql = "DELETE FROM `medicine` WHERE brandname='" + bname + "'";
+            stmt.executeUpdate(sql);
+            return success = true;
+
+        } catch (ClassNotFoundException | SQLException e) {
+            JOptionPane.showMessageDialog(null, "Eror connecting to database!");
         }
         return success;
     }
