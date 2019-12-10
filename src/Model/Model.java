@@ -47,10 +47,10 @@ public class Model {
                                     if (cash < adultAmount) {
                                         JOptionPane.showMessageDialog(null, "Insufficient cash to purchase!");
                                     } else {
-                                        JOptionPane.showConfirmDialog(null, "The amount is: " + adultAmount);
+                                        JOptionPane.showMessageDialog(null, "The amount is: " + adultAmount);
                                         String sql = "DELETE FROM `medicine` WHERE `brandname`='" + bname + "'";
                                         stmt.executeUpdate(sql);
-                                        JOptionPane.showConfirmDialog(null, "Successfully purchased!\nYour change is:" + (cash - adultAmount));
+                                        JOptionPane.showMessageDialog(null, "Successfully purchased!\nYour change is:" + (cash - adultAmount));
                                         return success = true;
                                     }
                                 } else {
@@ -58,10 +58,11 @@ public class Model {
                                         JOptionPane.showMessageDialog(null, "Insufficient cash to purchase!");
                                     } else {
                                         System.out.println("nagbasa sia diri");
-                                        JOptionPane.showConfirmDialog(null, "The amount is: " + adultAmount);
-                                        String sql = "UPDATE `medicine` SET quantity=" + (stock - qty) + "WHERE `brandname`='" + bname + "'";
+                                        JOptionPane.showMessageDialog(null, "The amount is: " + adultAmount);
+                                        
+                                        String sql = "UPDATE `medicine` SET quantity=" + (stock - qty) + " WHERE brandname='" + bname + "'";
                                         stmt.executeUpdate(sql);
-                                        JOptionPane.showConfirmDialog(null, "Successfully purchased!\nYour change is:" + (cash - adultAmount));
+                                        JOptionPane.showMessageDialog(null, "Successfully purchased!\nYour change is:" + (cash - adultAmount));
                                         return success = true;
                                     }
                                 }
@@ -72,20 +73,20 @@ public class Model {
                                     if (cash < adultAmount) {
                                         JOptionPane.showMessageDialog(null, "Insufficient cash to purchase!");
                                     } else {
-                                        JOptionPane.showConfirmDialog(null, "The amount is: " + seniorAmount);
+                                        JOptionPane.showMessageDialog(null, "The amount is: " + seniorAmount);
                                         String sql = "DELETE FROM `medicine` WHERE `brandname`='" + bname + "'";
                                         stmt.executeUpdate(sql);
-                                        JOptionPane.showConfirmDialog(null, "Successfully purchased!\nYour change is:" + (cash - seniorAmount));
+                                        JOptionPane.showMessageDialog(null, "Successfully purchased!\nYour change is:" + (cash - seniorAmount));
                                         return success = true;
                                     }
                                 } else {
                                     if (cash < seniorAmount) {
                                         JOptionPane.showMessageDialog(null, "Insufficient cash to purchase!");
                                     } else {
-                                        JOptionPane.showConfirmDialog(null, "The amount is: " + seniorAmount);
-                                        String sql = "UPDATE `medicine` SET `quantity`=" + (stock - qty) + "WHERE `brandname`='" + bname + "'";
+                                        JOptionPane.showMessageDialog(null, "The amount is: " + seniorAmount);
+                                        String sql = "UPDATE `medicine` SET `quantity`=" + (stock - qty) + " WHERE `brandname`='" + bname + "'";
                                         stmt.executeUpdate(sql);
-                                        JOptionPane.showConfirmDialog(null, "Successfully purchased!\nYour change is:" + (cash - seniorAmount));
+                                        JOptionPane.showMessageDialog(null, "Successfully purchased!\nYour change is:" + (cash - seniorAmount));
                                         return success = true;
                                     }
                                 }
@@ -101,6 +102,7 @@ public class Model {
                 JOptionPane.showMessageDialog(null, "Medicine do not exist!");
             }
         } catch (ClassNotFoundException | SQLException e) {
+            System.out.println(e);
             JOptionPane.showMessageDialog(null, "Error connecting to database!");
         }
 

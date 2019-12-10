@@ -5,23 +5,9 @@
  */
 package leulinsonlinepharmacyui;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import onlinepurchase.Adult;
-import onlinepurchase.MedicinesForAllergies;
-import onlinepurchase.MedicinesForBodyPain;
-import onlinepurchase.MedicinesForCough;
-import onlinepurchase.MedicinesForHeadache;
-import onlinepurchase.Orders;
-import onlinepurchase.Pharmacist;
-import onlinepurchase.Senior;
-import onlinepurchase.User;
 import Controller.Controller;
 
 /**
