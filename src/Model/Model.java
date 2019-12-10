@@ -26,13 +26,15 @@ public class Model {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/eulin", "root", "");
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM `medicine` WHERE `brandname`='" + bname + "'");
+            
+            ResultSet rs = stmt.executeQuery("SELECT * FROM `medicine` WHERE brandname='" + bname + "'");
 
             while (rs.next()) {
                 double price = rs.getDouble("price");
-                int stock = rs.getInt("stock");
+                int stock = rs.getInt("quantity");
+                System.out.println("nagread siya");
                 if (rs.getString("brandname").equals(bname)) {
-                    ResultSet rs1 = stmt.executeQuery("SELECT * FROM `userlist` WHERE `username`='" + uname + "'");
+                    ResultSet rs1 = stmt.executeQuery("SELECT * FROM `user` WHERE username='" + uname + "'");
                     while (rs1.next()) {
                         if (rs1.getString("username").equals(uname)) {
                             int age = rs1.getInt("age");
@@ -55,6 +57,7 @@ public class Model {
                                     if (cash < adultAmount) {
                                         JOptionPane.showMessageDialog(null, "Insufficient cash to purchase!");
                                     } else {
+                                        System.out.println("nagbasa sia diri");
                                         JOptionPane.showConfirmDialog(null, "The amount is: " + adultAmount);
                                         String sql = "UPDATE `medicine` SET quantity=" + (stock - qty) + "WHERE `brandname`='" + bname + "'";
                                         stmt.executeUpdate(sql);
@@ -80,7 +83,7 @@ public class Model {
                                         JOptionPane.showMessageDialog(null, "Insufficient cash to purchase!");
                                     } else {
                                         JOptionPane.showConfirmDialog(null, "The amount is: " + seniorAmount);
-                                        String sql = "UPDATE `medicine` SET quantity=" + (stock - qty) + "WHERE `brandname`='" + bname + "'";
+                                        String sql = "UPDATE `medicine` SET `quantity`=" + (stock - qty) + "WHERE `brandname`='" + bname + "'";
                                         stmt.executeUpdate(sql);
                                         JOptionPane.showConfirmDialog(null, "Successfully purchased!\nYour change is:" + (cash - seniorAmount));
                                         return success = true;
@@ -113,7 +116,7 @@ public class Model {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost/eulin", "root", "");
                 Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT * FROM `userlist` WHERE username='" + username + "'");
+                ResultSet rs = stmt.executeQuery("SELECT * FROM `user` WHERE username='" + username + "'");
 
                 if (rs.next()) {
                     if (rs.getString("password").equals(password)) {
@@ -137,7 +140,7 @@ public class Model {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/eulin", "root", "");
             Statement stmt = con.createStatement();
-            stmt.executeUpdate("INSERT INTO `userlist`(`username`, `age`, `password`) VALUES ('" + uname + "'," + age + ",'" + pass + "')");
+            stmt.executeUpdate("INSERT INTO `user`(`username`, `age`, `password`) VALUES ('" + uname + "'," + age + ",'" + pass + "')");
             return success = true;
         } catch (ClassNotFoundException | SQLException e) {
             JOptionPane.showMessageDialog(null, "Error connecting to database!");

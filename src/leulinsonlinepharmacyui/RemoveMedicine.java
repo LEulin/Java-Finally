@@ -183,7 +183,6 @@ public class RemoveMedicine extends javax.swing.JFrame {
 
     private void removebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removebtnMouseClicked
         String med = medbrand.getText();
-
         if(control.removeMedicine(med) == true){
             JOptionPane.showMessageDialog(rootPane,"Successfully removed!");
             this.dispose();

@@ -286,12 +286,12 @@ public class SignUp extends javax.swing.JFrame {
         String uname = username.getText();
         String pass = password.getText();
         String age1 = age.getText();
-        if (control.register(uname, age1, pass) == true) {
+        control.register(uname, age1, pass);
             JOptionPane.showMessageDialog(rootPane, "Successfully registered!");
             this.dispose();
             Login login = new Login();
             login.setVisible(true);
-        }
+        
 
 
     }//GEN-LAST:event_registerButtonMouseClicked

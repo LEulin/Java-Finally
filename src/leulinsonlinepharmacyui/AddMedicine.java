@@ -220,22 +220,21 @@ public class AddMedicine extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submitMouseClicked
+
+    }//GEN-LAST:event_submitMouseClicked
+
+    private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
         String brand = brandname.getText();
         String gen = genname.getText();
         String quant = quantity.getText();
         String prc = price.getText();
         String dropDownValue = (String) comboBox.getSelectedItem();
         String typ = dropDownValue;
-        
-        if (control.addMedicine(brand,gen, typ, quant, prc) == true) {
+        control.addMedicine(brand, gen, typ, quant, prc); 
             JOptionPane.showMessageDialog(null, "Medicine added successfully!");
             this.dispose();
             new PharmaDashboard().setVisible(true);
-        }
-    }//GEN-LAST:event_submitMouseClicked
-
-    private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
-
+        
     }//GEN-LAST:event_submitActionPerformed
 
     private void pharmabackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pharmabackActionPerformed

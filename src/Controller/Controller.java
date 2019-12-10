@@ -13,7 +13,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import leulinsonlinepharmacyui.PharmaDashboard;
 
 /**
  *
@@ -55,13 +54,13 @@ public class Controller {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/eulin", "root", "");
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM `userlist` WHERE username='" + uname + "'");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM `user` WHERE username='" + uname + "'");
 
             if (rs.next()) {
                 JOptionPane.showMessageDialog(null, "Username is already taken!");
             } else {
                 try {
-                    int myAge = Integer.parseInt(age);                   
+                    int myAge = Integer.parseInt(age);
                     if (myAge < 18) {
                         JOptionPane.showMessageDialog(null, "Minors are not allowed to register!");
                     } else {
@@ -119,5 +118,5 @@ public class Controller {
 
         return success;
     }
-    
+
 }
